@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/style.css' %}" type='text/css' rel="stylesheet">
+    <title>Store | Homepage</title>
+</head>
+<body>
+    <div class="main-container">
+
+        <div class="title">
+            <h2>Apni Dukaan __logo</h2>
+        </div>
+
+        {% block content %}
+
+        <div class="login">
+            <h3 class='login-title'></h3>
+            <div class='login-title'>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type ="submit" name="retailer">Retailer</button>
+                    <button type= "submit" name="consumer">Consumer</button>
+                </form>
+            </div>
+        </div>
+
+        {% endblock %}
+
+    </div>
+    
+</body>
+</html>
