@@ -1,0 +1,27 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+.logo-container{
+    width: 100%;
+    border: 10px solid black;
+
+}
+
+.page-container{
+    width: 100%;
+    border: 10px solid black;
+    text-align: center;
+}
+
+.logo-container .logo{
+    text-align: center;
+    font-size: 40px;
+    font-family: serif;
+    border: 1px solid black;
+}
+
+.my-shop{
+    color:red;
+}
