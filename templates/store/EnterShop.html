@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div class="row mt-4">
+        <div class="col">
+            <h2> Add New Item to Your Shop</h2>
+            <form method = 'POST' class='form-inline'>
+                {% csrf_token %}
+                <input type="text" name = 'item_name' class="form-control mt-2 mb-2" placeholder="Name">
+                <input type="text" name = 'item_price' class="form-control mt-2 mb-2" placeholder="Price">
+                <input type="text" name = 'item_unit' class="form-control mt-2 mb-2" placeholder="Unit">
+                <input type="number" name = 'shop_id' class="form-control mt-2 mb-2" placeholder="Enter Shop Id">
+                <button type="submit" class="btn btn-primary mt-2 mb-2 ml-2" name="add">Add Item</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <h2> Items Present at Your Store: {{ shop_id }} </h2>
+            <ul class="list-group">
+                {% for item in item_list %}
+                <li class="list-group-item">
+                    <span> {{ item.name }} </span>
+                    <span> {{ item.price }} </span>
+                    <span> {{ item.unit }} </span>
+                    
+                    <div class="float-right">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger" name='delete' value={{item.id}}>Delete</button>
+                        </form>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

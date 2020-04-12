@@ -5,7 +5,7 @@ from datetime import datetime
 
 class Shop(models.Model):
     name = models.CharField(max_length=100)
-    shop_key = models.CharField(primary_key=True, max_length=6)
+    shop_key = models.IntegerField(primary_key=True)
     slug = models.CharField(max_length=200, default=1)
 
     class Meta:
